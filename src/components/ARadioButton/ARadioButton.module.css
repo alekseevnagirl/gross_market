@@ -1,0 +1,9 @@
+.radioButton__wrapper {
+    display: flex;
+}
+input[type='radio']:after {
+    border: none;
+}
+.radioButton__label {
+    font-size: 14px;
+}

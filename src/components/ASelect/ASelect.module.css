@@ -1,0 +1,21 @@
+.select__wrapper {
+    display: block;
+    width: fit-content;
+}
+.select__label {
+    margin: 0 0 10px 0;
+    font-size: 14px;
+}
+.select {
+    min-width: 255px;
+    min-height: 47px;
+    background-color: #F5F5F5;
+    border: none;
+    border-radius: 8px;
+    -webkit-appearance: none;
+    padding: 0 16px;
+}
+.select__option {
+    background-color: #F5F5F5;
+    min-height: 47px;
+}

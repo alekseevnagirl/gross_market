@@ -1,0 +1,20 @@
+.input__wrapper {
+    display: block;
+    width: fit-content;
+}
+.input__label {
+    font-size: 14px;
+    margin: 0 0 10px 0;
+}
+.input {
+    border-radius: 8px;
+    border: none;
+    background-color: #F5F5F5;
+    min-width: 255px;
+    min-height: 47px;
+    font-size: 18px;
+    padding: 0 16px;
+}
+.input:enabled {
+    border: none;
+}
