@@ -10,7 +10,8 @@
     font-size: 14px;
     margin: 0 0 10px 0;
 }
-.fileLoader {
+.fileLoader,
+.fileLoader__files {
     border: none;
     min-width: 255px;
     min-height: 47px;
@@ -19,10 +20,8 @@
     align-content: center;
     color: #8e8e8e;
 }
-.fileLoader::file-selector-button {
-    display: none;
-}
-.fileLoader::file-selector-button-label {
+.fileLoader::file-selector-button,
+.fileLoader__files::file-selector-button {
     display: none;
 }
 .fileLoader::before {
@@ -35,4 +34,10 @@
 .fileLoader__loader__wrapper {
     display: flex;
     align-items: center;
+}
+.fileLoader__files::before  {
+    content: "";
+}
+.fileLoader__files {
+    color: #000000;
 }

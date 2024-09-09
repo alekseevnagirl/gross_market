@@ -3,6 +3,16 @@
     src: url(../fonts/EuclidCircularB-Medium.ttf);
 }
 
+body {
+    margin: 0;
+}
+
 * {
     font-family: EuclidCircularB;
+}
+.App__header {
+    padding: 0 165px;
+}
+.App__header__form {
+    padding: 0 165px;
 }

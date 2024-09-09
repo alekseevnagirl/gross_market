@@ -1,0 +1,23 @@
+.FormPage__wrapper {
+    margin: 0 165px;
+}
+.FormPage__title {
+    font-size: 72px;
+}
+.FormPage__container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.FormPage__contaier__title {
+    font-size: 32px;
+}
+.FormPage__contaier__item {
+    width: 100%;
+}
+.FormPage__contaier__item input {
+    width: 100%;
+}
+.displayFlex {
+    display: flex;
+}

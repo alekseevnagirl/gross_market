@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import Header from './components/Header/Header';
+import Footer from './components/Footer/Footer';
 import FormPage from './pages/FormPage';
 import './styles/App.css'
 
@@ -21,7 +23,9 @@ function App() {
 
   return (
     <div className="App">
+      <Header page="formPage"></Header>
       <FormPage></FormPage>
+      <Footer></Footer>
     </div>
   );
 }
