@@ -6,4 +6,12 @@
     color: #000000;
     font-size: 18px;
     font-weight: 500;
+    width: 100%;
+}
+.button:hover {
+    cursor: pointer;
+}
+.button:disabled {
+    cursor: default;
+    background-color: #F5F5F5;
 }

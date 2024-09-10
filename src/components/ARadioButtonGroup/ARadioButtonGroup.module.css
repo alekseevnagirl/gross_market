@@ -1,7 +1,11 @@
 .radioButtonGroup__wrapper {
     display: block;
-    width: fit-content;
+    width: 100%;
 }
 .radioButtonGroup__label {
     margin: 0 0 14px 0;
+    font-size: 14px;
+}
+.radioButtonGroup {
+    display: flex;
 }

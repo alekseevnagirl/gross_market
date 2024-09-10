@@ -16,10 +16,17 @@ const ARadioButtonGroup = function (props) {
                   </div>
                 : <div></div>
             }
-
-            { radioButtonValues.map(value => 
-                <ARadioButton value={value.value}></ARadioButton>
-            )}
+            <div className={classes.radioButtonGroup}>
+                <table width="100%">
+                    <tr>
+                        { radioButtonValues.map(value => 
+                            <td style={{ width: `${100 / radioButtonValues.length}%` }}>
+                                <ARadioButton value={value.value}></ARadioButton>
+                            </td>
+                        )}
+                    </tr>
+                </table>
+            </div>
         </div>
     )
 }

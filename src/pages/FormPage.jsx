@@ -4,6 +4,8 @@ import ARadioButtonGroup from '../components/ARadioButtonGroup/ARadioButtonGroup
 import ASelect from '../components/ASelect/ASelect';
 import ATextArea from '../components/ATextArea/ATextArea';
 import AFileLoader from '../components/AFileLoader/AFileLoader';
+import ACheckBox from '../components/ACheckBox/ACheckBox';
+import AButton from '../components/AButton/AButton';
 import '../styles/FormPage.css'
 
 function FormPage() {
@@ -23,11 +25,7 @@ function FormPage() {
       {key: 'receptionist', value: 'приёмщик'}
     ])
 
-    const [verified, setVerified] = useState(false);
-
-    const onChangeCaptcha = (value) => {
-        setVerified(true);
-    };
+    const approvalText = "я подтверждаю согласие на обработку персональных данных и принимаю условия рассмотрения обращений *";
   
     return (
       <div className="FormPage__wrapper">
@@ -36,46 +34,90 @@ function FormPage() {
         </p>
 
         <div class="FormPage__container">
-            <div class="FormPage__contaier__item">
-                <ASelect labelText="Вакансия" 
-                    values={ vacancies } 
-                    required={true}>
-                </ASelect>
+            <div class="FormPage__container__item__form">
+                <table className="FormPage__container__table">
+                    <tr>
+                        <td colspan="2">
+                            <ASelect labelText="Вакансия" 
+                                values={ vacancies } 
+                                required={true}>
+                            </ASelect>
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td colspan="2">
+                            <AInput labelText="ФИО" 
+                                required={true} >
+                            </AInput>
+                        </td>
+                    </tr>
 
-                <AInput labelText="ФИО" 
-                    required={true} >
-                </AInput>
+                    <tr>
+                        <td width="50%">
+                            <AInput labelText="Дата рождения" 
+                                required={true} 
+                                placeholder="28.07.2002">
+                            </AInput>
+                        </td>
+                        <td width="50%">
+                            <ARadioButtonGroup labelText="Пол" 
+                                values={ gender }>
+                            </ARadioButtonGroup>
+                        </td>
+                    </tr>
 
-                <div className="displayFlex">
-                    <AInput labelText="Дата рождения" 
-                        required={true} 
-                        placeholder="28.07.2002">
-                    </AInput>
-                    <ARadioButtonGroup labelText="Пол" 
-                        values={ gender }>
-                    </ARadioButtonGroup>
-                </div>
+                    <tr>
+                        <td width="50%">
+                            <AInput labelText="Контактный телефон" 
+                                required={true} 
+                                placeholder="+7 (">
+                            </AInput>
+                        </td>
+                        <td>
+                            <AInput labelText="Электронная почта" 
+                                required={false}>
+                            </AInput>
+                        </td>
+                    </tr>
 
-                <div className="displayFlex">
-                    <AInput labelText="Контактный телефон" 
-                        required={true} 
-                        placeholder="+7 (">
-                    </AInput>
-                    <AInput labelText="Электронная почта" 
-                        required={false}>
-                    </AInput>
-                </div>
+                    <tr>
+                        <td colspan="2">
+                            <ATextArea labelText="Резюме">
+                            </ATextArea>
+                        </td>
+                    </tr>
 
-                <ATextArea labelText="Резюме"></ATextArea>
-        
-                <AFileLoader></AFileLoader><br/><br/>
+                    <tr>
+                        <td colspan="2">
+                            <AFileLoader></AFileLoader>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="2">
+                            <ACheckBox value={approvalText}>
+                            </ACheckBox>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="2">
+                            <AButton value="отправить" 
+                                disabled={true} 
+                                className="FormPage__sendButton">
+                            </AButton>
+                        </td>
+                    </tr>
+                </table>
             </div>
 
-            <div class="FormPage__contaier__item">
-                <p className="FormPage__contaier__title">Наша суперцель</p>
+            <div class="FormPage__container__item__info">
+                <p className="FormPage__container__title">Наша суперцель</p>
                 <p>— стать любимым магазином для каждой российской семьи.<br/><br/>
                 Сотни тысяч наших сотрудников ежедневно работают над её достижением.<br/><br/>
                 Мы уверены, что в ближайшие годы достигнем этого и будет здорово, если вместе с тобой.</p>
+                <AButton value="+7 (926) 433-14-16" disabled={true} className="FormPage__phoneNumber"></AButton>
             </div>
         </div>
         

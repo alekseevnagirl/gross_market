@@ -1,0 +1,30 @@
+.checkbox__wrapper {
+    display: flex;
+    font-size: 14px;
+    gap: 5px;
+    align-items: center;
+}
+.checkbox {
+	-webkit-appearance:none;
+	outline: none;
+	content: none;	
+    width: fit-content !important;
+}
+
+.checkbox:before {
+    content: "\2714";
+    font-size: 15px;
+    color: transparent !important;
+    background: #F5F5F5;
+    display: flex;
+    width: 24px;
+    height: 24px;
+    border: none;
+    border-radius: 8px;
+    justify-content: center;
+}
+
+.checkbox:checked:before {
+    color: black !important;
+}
+  

@@ -1,33 +1,28 @@
-import React, { useState } from 'react';
+import { React } from 'react';
+import './styles/App.css'
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
+import MainPage from './pages/MainPage';
+import FormPage from './pages/FormPage';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
-import FormPage from './pages/FormPage';
-import './styles/App.css'
 
 function App() {
-  const [gender, setGender] = useState([
-      {key: 'man', value: 'мужской'},
-      {key: 'woman', value: 'женский'}
-    ]
-  )
-
-  const [vacancies, setVacancies] = useState([
-    {key: 'commodityExpert', value: 'товаровед'},
-    {key: 'driver', value: 'водитель'},
-    {key: 'baker', value: 'пекарь'},
-    {key: 'cashier', value: 'кассир'},
-    {key: 'seller', value: 'продавец'},
-    {key: 'cook', value: 'повар'},
-    {key: 'receptionist', value: 'приёмщик'}
-  ])
-
   return (
-    <div className="App">
-      <Header page="formPage"></Header>
-      <FormPage></FormPage>
-      <Footer></Footer>
-    </div>
+    <BrowserRouter>
+      <HeaderWrapper />
+      <Routes>
+        <Route path="/" element={<MainPage />} />
+        <Route path="/form" element={<FormPage />} />
+      </Routes>
+      <Footer />
+    </BrowserRouter>
   );
+}
+
+function HeaderWrapper() {
+  const location = useLocation();
+
+  return <Header page={location.pathname} />;
 }
 
 export default App;
