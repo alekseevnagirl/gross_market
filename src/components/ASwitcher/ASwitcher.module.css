@@ -1,0 +1,19 @@
+.switcher__wrapper {
+    background-color: #ffffff;
+    border-radius: 8px;
+    border: none;
+    width: fit-content;
+    height: 44px;
+    display: flex;
+    align-items: center;
+}
+.switcher__left,
+.switcher__right {
+    background-color: #ffffff;
+    border: none;
+    width: 44px;
+    height: 28px;
+}
+.switcher__left {
+    border-right: 1px solid #F5F5F5;
+}

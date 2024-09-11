@@ -6,6 +6,7 @@ import ATextArea from '../components/ATextArea/ATextArea';
 import AFileLoader from '../components/AFileLoader/AFileLoader';
 import ACheckBox from '../components/ACheckBox/ACheckBox';
 import AButton from '../components/AButton/AButton';
+import ACaptcha from '../components/ACaptcha/ACaptcha';
 import '../styles/FormPage.css'
 
 function FormPage() {
@@ -91,6 +92,17 @@ function FormPage() {
                     <tr>
                         <td colspan="2">
                             <AFileLoader></AFileLoader>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td width="50%">
+                            <ACaptcha labelText="Капча"></ACaptcha>
+                        </td>
+                        <td>
+                            <p className="FormPage__container__note">
+                                * поля для обязательного заполнения
+                            </p>
                         </td>
                     </tr>
 

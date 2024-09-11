@@ -1,6 +1,6 @@
 .select__wrapper {
     display: block;
-    width: fit-content;
+    width: 100%;
 }
 .select__label {
     margin: 0 0 10px 0;

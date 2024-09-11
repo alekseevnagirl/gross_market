@@ -1,6 +1,6 @@
 .input__wrapper {
     display: block;
-    width: fit-content;
+    width: 100%;
 }
 .input__label {
     font-size: 14px;
@@ -14,6 +14,7 @@
     min-height: 47px;
     font-size: 18px;
     padding: 0 16px;
+    width: 100%;
 }
 .input:enabled {
     border: none;

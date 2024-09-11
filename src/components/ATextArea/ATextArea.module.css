@@ -1,6 +1,6 @@
 .textarea__wrapper {
     display: block;
-    width: fit-content;
+    width: 100%;
 }
 .textarea__label {
     font-size: 14px;
@@ -15,4 +15,5 @@
     font-size: 18px;
     padding: 16px;
     resize: none;
+    width: 100%;
 }

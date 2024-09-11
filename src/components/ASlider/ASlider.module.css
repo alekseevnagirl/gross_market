@@ -1,0 +1,21 @@
+.slider__wrapper {
+    width: 100%;
+    background-color: #F5F5F5;
+    min-height: 400px;
+    padding: 0 165px;
+}
+.slider__container {
+    display: flex;
+    flex-direction: row;
+    gap: 53px;
+}
+.slider__container__item__switching {
+    flex: 1 1 40%;
+    font-size: 72px;
+}
+.slider__container__item__switching p {
+    margin: 0;
+}
+.slider__container__item__image {
+    flex: 1 1 60%;
+}
