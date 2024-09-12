@@ -1,6 +1,6 @@
 .slider__wrapper {
     background-color: #F5F5F5;
-    min-height: 400px;
+    height: 400px;
     padding: 0 165px;
 }
 .slider__container {
@@ -11,6 +11,7 @@
 .slider__container__item__switching {
     flex: 1 1 40%;
     font-size: 72px;
+    display: block;
 }
 .slider__container__item__switching p {
     margin: 0;

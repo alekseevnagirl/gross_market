@@ -55,8 +55,6 @@ const ASlider = function (props) {
                 newDisabledRight = false;
             }
 
-            console.log(newIndex, newDisabledLeft, newDisabledRight)
-
             return {
                 ...prevSlide,
                 currentIndex: newIndex,
