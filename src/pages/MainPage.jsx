@@ -1,5 +1,6 @@
 import React from 'react';
 import ASlider from '../components/ASlider/ASlider';
+import AMiniSlider from '../components/AMiniSlider/AMiniSlider';
 
 function MainPage() {
     const slides = [
@@ -10,6 +11,8 @@ function MainPage() {
         <div>
             <ASlider slides={slides}>
             </ASlider>
+
+            <AMiniSlider></AMiniSlider>
         </div>
     );
 }

@@ -1,5 +1,4 @@
 .slider__wrapper {
-    width: 100%;
     background-color: #F5F5F5;
     min-height: 400px;
     padding: 0 165px;
@@ -18,4 +17,23 @@
 }
 .slider__container__item__image {
     flex: 1 1 60%;
+}
+.switcher__wrapper {
+    background-color: #ffffff;
+    border-radius: 8px;
+    border: none;
+    width: fit-content;
+    height: 44px;
+    display: flex;
+    align-items: center;
+}
+.switcher__left,
+.switcher__right {
+    background-color: #ffffff;
+    border: none;
+    width: 44px;
+    height: 28px;
+}
+.switcher__left {
+    border-right: 1px solid #F5F5F5;
 }
