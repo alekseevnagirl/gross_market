@@ -1,8 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import AIcon from '../AIcon/AIcon';
+import DataProcessing from '../../mixins/DataProcessing';
 import classes from './Footer.module.css';
 
 const Footer = function (props) {
+    const [isPopupOpen, setPopupOpen] = useState(false);
+    const openPopup = () => {
+        setPopupOpen(true);
+    };
+    const closePopup = () => {
+        setPopupOpen(false);
+    };
+
     return (
         <div className={classes.footer__wrapper}>
             <div className={classes.footer__block__wrapper}>
@@ -32,7 +41,13 @@ const Footer = function (props) {
                         <p>© Гросс маркет 2020</p>
                     </td>
                     <td>
-                        <p>Политика обработки персональных данных</p>
+                        <button onClick={openPopup}
+                            className={classes.footer__popup}>
+                            Политика обработки персональных данных
+                        </button>
+                        <DataProcessing closePopup={closePopup}
+                            isPopupOpen={isPopupOpen}>
+                        </DataProcessing>
                     </td>
                 </tr>
             </table>

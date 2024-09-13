@@ -32,3 +32,12 @@
     justify-content: space-between;
     align-items: center;
 }
+.footer__popup {
+    margin: 0;
+    padding: 0;
+    background-color: inherit;
+    border: none;
+}
+.footer__popup:hover {
+    cursor: pointer;
+}
