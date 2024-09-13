@@ -1,0 +1,22 @@
+.map__wrapper {
+    margin: 0 165px;
+    position: relative;
+    height: 100%;
+}
+.map__filter__wrapper {
+    width: fit-content;
+    position: absolute;
+    top: 60%;
+    left: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    z-index: 1;
+}
+.map__filter {
+    width: fit-content;
+    font-size: 18px;
+}
+.map__filter {
+    padding-bottom: 8px
+}

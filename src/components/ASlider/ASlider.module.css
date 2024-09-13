@@ -11,7 +11,8 @@
 .slider__container__item__switching {
     flex: 1 1 40%;
     font-size: 72px;
-    display: block;
+    display: grid;
+    align-content: space-evenly;
 }
 .slider__container__item__switching p {
     margin: 0;

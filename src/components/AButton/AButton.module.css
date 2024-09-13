@@ -8,10 +8,20 @@
     font-weight: 500;
     width: 100%;
 }
-.button:hover {
+.button:hover,
+.button__filterSelected:hover {
     cursor: pointer;
 }
 .button:disabled {
     cursor: default;
     background-color: #F5F5F5;
+}
+.button__filterSelected {
+    background-color: #F5F5F5;border-radius: 8px;
+    border: none;
+    padding: 12px 16px;
+    color: #000000;
+    font-size: 18px;
+    font-weight: 500;
+    width: 100%;
 }
