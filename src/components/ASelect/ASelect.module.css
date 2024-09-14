@@ -15,6 +15,7 @@
     -webkit-appearance: none;
     padding: 0 16px;
     font-size: 18px;
+    width: 100%;
 }
 .select__option {
     background-color: #F5F5F5;

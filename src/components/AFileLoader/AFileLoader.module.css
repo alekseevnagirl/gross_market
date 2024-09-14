@@ -26,6 +26,7 @@
 }
 .fileLoader::before {
     content: "выберите или перетащите файл";
+    padding-right: 1000px;
 }
 .fileLoader__icon {
     display: inline-block;

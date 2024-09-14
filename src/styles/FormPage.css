@@ -37,3 +37,6 @@
     font-size: 14px;
     color: #8e8e8e;
 }
+.FormPage__container__table__input {
+    margin-right: 30px;
+}

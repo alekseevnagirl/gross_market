@@ -4,7 +4,10 @@ import classes from './DataProcessing.module.css';
 
 const DataProcessing = function ({closePopup, isPopupOpen}) {
     return (
-        <APopUp isOpen={isPopupOpen} onClose={closePopup}>
+        <APopUp isOpen={isPopupOpen} 
+            onClose={closePopup}
+            title="Обработка данных">
+                
             <p className={classes.DataProcessing__popup__title}>
                 Обработка данных
             </p>

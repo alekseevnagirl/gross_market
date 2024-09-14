@@ -18,7 +18,7 @@ const AInput = function (props) {
                 : <div></div>
             }
             <input type="text" 
-                className={classes.input} 
+                className={props.isInvalid ? classes.input__invalid : classes.input} 
                 required={props.required}
                 placeholder={props.placeholder}>
             </input>

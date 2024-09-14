@@ -8,6 +8,7 @@ import ACheckBox from '../components/ACheckBox/ACheckBox';
 import AButton from '../components/AButton/AButton';
 import ACaptcha from '../components/ACaptcha/ACaptcha';
 import '../styles/FormPage.css'
+import { useNavigate } from 'react-router-dom';
 
 function FormPage() {
     const [gender, setGender] = useState([
@@ -27,6 +28,31 @@ function FormPage() {
     ])
 
     const approvalText = "я подтверждаю согласие на обработку персональных данных и принимаю условия рассмотрения обращений *";
+
+    const [isNotValid, setIsNotValid] = useState(false);
+
+    const navigate = useNavigate ();
+
+    const handleSubmit = (event) => {
+        /*event.preventDefault();
+        const { name, email } = event.target.elements;
+        const newErrors = {};
+    
+        if (!name.value.trim()) {
+          newErrors.name = 'Имя является обязательным';
+        }
+    
+        if (!email.value.trim()) {
+          newErrors.email = 'Электронная почта является обязательной';
+        }
+    
+        setErrors(newErrors);
+    
+        if (Object.keys(newErrors).length === 0) {
+          // Отправляем форму
+        }*/
+          navigate('/success');
+    };
   
     return (
       <div className="FormPage__wrapper">
@@ -36,92 +62,99 @@ function FormPage() {
 
         <div class="FormPage__container">
             <div class="FormPage__container__item__form">
-                <table className="FormPage__container__table">
-                    <tr>
-                        <td colspan="2">
-                            <ASelect labelText="Вакансия" 
-                                values={ vacancies } 
-                                required={true}>
-                            </ASelect>
-                        </td>
-                    </tr>
-                    
-                    <tr>
-                        <td colspan="2">
-                            <AInput labelText="ФИО" 
-                                required={true} >
-                            </AInput>
-                        </td>
-                    </tr>
+                <form onSubmit={handleSubmit}>
+                    <table className="FormPage__container__table">
+                        <tr>
+                            <td colspan="2">
+                                <ASelect labelText="Вакансия" 
+                                    values={ vacancies } 
+                                    required={true}>
+                                </ASelect>
+                            </td>
+                        </tr>
+                        
+                        <tr>
+                            <td colspan="2">
+                                <AInput labelText="ФИО" 
+                                    required={true} >
+                                </AInput>
+                            </td>
+                        </tr>
 
-                    <tr>
-                        <td width="50%">
-                            <AInput labelText="Дата рождения" 
-                                required={true} 
-                                placeholder="28.07.2002">
-                            </AInput>
-                        </td>
-                        <td width="50%">
-                            <ARadioButtonGroup labelText="Пол" 
-                                values={ gender }>
-                            </ARadioButtonGroup>
-                        </td>
-                    </tr>
+                        <tr>
+                            <td width="50%">
+                                <div className='FormPage__container__table__input'>
+                                    <AInput labelText="Дата рождения" 
+                                        required={true} 
+                                        placeholder="28.07.2002">
+                                    </AInput>
+                                </div>
+                            </td>
+                            <td width="50%">
+                                <ARadioButtonGroup labelText="Пол" 
+                                    values={ gender }>
+                                </ARadioButtonGroup>
+                            </td>
+                        </tr>
 
-                    <tr>
-                        <td width="50%">
-                            <AInput labelText="Контактный телефон" 
-                                required={true} 
-                                placeholder="+7 (">
-                            </AInput>
-                        </td>
-                        <td>
-                            <AInput labelText="Электронная почта" 
-                                required={false}>
-                            </AInput>
-                        </td>
-                    </tr>
+                        <tr>
+                            <td width="50%">
+                                <div className='FormPage__container__table__input'>
+                                    <AInput labelText="Контактный телефон" 
+                                        required={true} 
+                                        placeholder="+7 (">
+                                    </AInput>
+                                </div>
+                            </td>
+                            <td>
+                                <AInput labelText="Электронная почта" 
+                                    required={false}>
+                                </AInput>
+                            </td>
+                        </tr>
 
-                    <tr>
-                        <td colspan="2">
-                            <ATextArea labelText="Резюме">
-                            </ATextArea>
-                        </td>
-                    </tr>
+                        <tr>
+                            <td colspan="2">
+                                <ATextArea labelText="Резюме">
+                                </ATextArea>
+                            </td>
+                        </tr>
 
-                    <tr>
-                        <td colspan="2">
-                            <AFileLoader></AFileLoader>
-                        </td>
-                    </tr>
+                        <tr>
+                            <td colspan="2">
+                                <AFileLoader></AFileLoader>
+                            </td>
+                        </tr>
 
-                    <tr>
-                        <td width="50%">
-                            <ACaptcha labelText="Капча"></ACaptcha>
-                        </td>
-                        <td>
-                            <p className="FormPage__container__note">
-                                * поля для обязательного заполнения
-                            </p>
-                        </td>
-                    </tr>
+                        <tr>
+                            <td width="50%">
+                                <ACaptcha labelText="Капча"></ACaptcha>
+                            </td>
+                            <td>
+                                <p className="FormPage__container__note">
+                                    * поля для обязательного заполнения
+                                </p>
+                            </td>
+                        </tr>
 
-                    <tr>
-                        <td colspan="2">
-                            <ACheckBox value={approvalText}>
-                            </ACheckBox>
-                        </td>
-                    </tr>
+                        <tr>
+                            <td colspan="2">
+                                <ACheckBox value={approvalText}>
+                                </ACheckBox>
+                            </td>
+                        </tr>
 
-                    <tr>
-                        <td colspan="2">
-                            <AButton value="отправить" 
-                                disabled={true} 
-                                className="FormPage__sendButton">
-                            </AButton>
-                        </td>
-                    </tr>
-                </table>
+                        <tr>
+                            <td colspan="2">
+                                <AButton value="отправить" 
+                                    disabled={isNotValid} 
+                                    className="FormPage__sendButton"
+                                    type="submit">
+                                </AButton>
+                            </td>
+                        </tr>
+                    </table>
+                </form>
             </div>
 
             <div class="FormPage__container__item__info">

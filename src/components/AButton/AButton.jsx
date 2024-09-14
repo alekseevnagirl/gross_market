@@ -6,7 +6,8 @@ const AButton = function (props) {
         <div>
             <button className={props.filterSelected ? classes.button__filterSelected : classes.button}
                 onClick={props.click}
-                disabled={props.disabled}>
+                disabled={props.disabled}
+                type={props.type}>
                 {props.value}
             </button>
         </div>

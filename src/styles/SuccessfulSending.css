@@ -1,0 +1,39 @@
+.SuccessfulSending__wrapper {
+    padding: 0 165px;
+    background-color: #ffffff;
+}
+.SuccessfulSending__title {
+    font-size: 72px;
+    margin: 72px 0 48px 0;
+}
+.SuccessfulSending__container {
+    display: flex;
+    gap: 125px;
+    margin-bottom: 180px;
+}
+.SuccessfulSending__container__content__wrapper {
+    flex: 1 1 60%;
+}
+.SuccessfulSending__container__contact__wrapper {
+    flex: 1 1 40%;
+}
+.SuccessfulSending__container__content {
+    font-size: 18px;
+    line-height: 22.82px;
+    margin: 0;
+}
+.SuccessfulSending__container__contentWithBorder {
+    font-size: 14px;
+    line-height: 17.75px;
+    margin: 24px 0;
+    border-left: 3px solid #FFDF31;
+    padding: 2px 0 2px 12px;
+
+}
+.SuccessfulSending__container__contact__title {
+    font-size: 32px;
+    margin: 0 0 32px 0;
+}
+.SuccessfulSending__phoneNumber {
+    font-size: 24px;
+}

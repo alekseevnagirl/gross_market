@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import AIcon from '../AIcon/AIcon';
 import classes from './APopUp.module.css';
 
-const APopUp = ({ isOpen, onClose, children }) => {
+const APopUp = ({ isOpen, onClose, children, title }) => {
     if (!isOpen) return null;
   
     return (
@@ -16,6 +16,9 @@ const APopUp = ({ isOpen, onClose, children }) => {
                       </AIcon>
                   </button>
               </div>
+
+              
+
               <div className={classes.popup__content__wrapper}>
                   {children}
               </div>
@@ -26,3 +29,16 @@ const APopUp = ({ isOpen, onClose, children }) => {
   };
 
 export default APopUp;
+
+/*
+<div className={classes.popup__header__wrapper}>
+                <div className={classes.popup__header}>
+                  <p>{title}</p>
+                  <button onClick={onClose}
+                    className={classes.popup__close}>
+                    <AIcon iconName="thin-close-icon">
+                    </AIcon>
+                  </button>
+                </div>
+              </div>
+               */
