@@ -22,3 +22,8 @@
 .input__invalid  {
     background-color: #ffdfe4;
 }
+.input__error {
+    color: #FF6666;
+    font-size: 14px;
+    margin: 0;
+}

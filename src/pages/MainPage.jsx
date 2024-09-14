@@ -2,6 +2,7 @@ import React from 'react';
 import ASlider from '../components/ASlider/ASlider';
 import AMiniSlider from '../components/AMiniSlider/AMiniSlider';
 import YandexMap from '../components/YandexMap/YandexMap';
+import InstagramFeed from '../components/InstagramFeed/InstagramFeed';
 import '../styles/MainPage.css';
 
 function MainPage() {
@@ -42,8 +43,8 @@ function MainPage() {
                 slides={miniSlides}>
             </AMiniSlider>
 
-            <br/><br/><br/> insta <br/><br/><br/>
-
+            <InstagramFeed title="мы в инстаграме"></InstagramFeed>
+            
             <YandexMap points={points} />
         </div>
     );

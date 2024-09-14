@@ -21,7 +21,7 @@ const ARadioButtonGroup = function (props) {
                     <tr>
                         { radioButtonValues.map(value => 
                             <td style={{ width: `${100 / radioButtonValues.length}%` }}>
-                                <ARadioButton value={value.value}></ARadioButton>
+                                <ARadioButton value={value.value} name={props.name}></ARadioButton>
                             </td>
                         )}
                     </tr>

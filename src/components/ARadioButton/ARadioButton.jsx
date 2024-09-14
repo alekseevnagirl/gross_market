@@ -5,7 +5,8 @@ const ARadioButton = function (props) {
     return (
         <div className={classes.radioButton__wrapper}>
             <input type="radio" 
-                className={classes.radioButton}>
+                className={classes.radioButton}
+                name={props.name}>
             </input>
             <p className={classes.radioButton__label}>
                 {props.value}

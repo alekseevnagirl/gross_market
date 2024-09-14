@@ -9,6 +9,7 @@ import AButton from '../components/AButton/AButton';
 import ACaptcha from '../components/ACaptcha/ACaptcha';
 import '../styles/FormPage.css'
 import { useNavigate } from 'react-router-dom';
+import DataProcessing from '../mixins/DataProcessing';
 
 function FormPage() {
     const [gender, setGender] = useState([
@@ -34,25 +35,24 @@ function FormPage() {
     const navigate = useNavigate ();
 
     const handleSubmit = (event) => {
-        /*event.preventDefault();
-        const { name, email } = event.target.elements;
-        const newErrors = {};
-    
-        if (!name.value.trim()) {
-          newErrors.name = 'Имя является обязательным';
+        let errors = false;
+        if (errors === true) {
+            navigate('/success');
+        } 
+        else {
+            console.log(11111, isInvalid)
         }
-    
-        if (!email.value.trim()) {
-          newErrors.email = 'Электронная почта является обязательной';
-        }
-    
-        setErrors(newErrors);
-    
-        if (Object.keys(newErrors).length === 0) {
-          // Отправляем форму
-        }*/
-          navigate('/success');
     };
+
+    const [isPopupOpen, setPopupOpen] = useState(false);
+    const openPopup = () => {
+        setPopupOpen(true);
+    };
+    const closePopup = () => {
+        setPopupOpen(false);
+    };
+
+    const [isInvalid, setInvalid] = useState(false);
   
     return (
       <div className="FormPage__wrapper">
@@ -76,7 +76,8 @@ function FormPage() {
                         <tr>
                             <td colspan="2">
                                 <AInput labelText="ФИО" 
-                                    required={true} >
+                                    required={true}
+                                    isInvalid={isInvalid}>
                                 </AInput>
                             </td>
                         </tr>
@@ -86,13 +87,15 @@ function FormPage() {
                                 <div className='FormPage__container__table__input'>
                                     <AInput labelText="Дата рождения" 
                                         required={true} 
-                                        placeholder="28.07.2002">
+                                        placeholder="28.07.2002"
+                                        isInvalid={isInvalid}>
                                     </AInput>
                                 </div>
                             </td>
                             <td width="50%">
                                 <ARadioButtonGroup labelText="Пол" 
-                                    values={ gender }>
+                                    values={ gender }
+                                    name="gender">
                                 </ARadioButtonGroup>
                             </td>
                         </tr>
@@ -102,13 +105,15 @@ function FormPage() {
                                 <div className='FormPage__container__table__input'>
                                     <AInput labelText="Контактный телефон" 
                                         required={true} 
-                                        placeholder="+7 (">
+                                        placeholder="+7 ("
+                                        isInvalid={isInvalid}>
                                     </AInput>
                                 </div>
                             </td>
                             <td>
                                 <AInput labelText="Электронная почта" 
-                                    required={false}>
+                                    required={false}
+                                    isInvalid={isInvalid}>
                                 </AInput>
                             </td>
                         </tr>
@@ -139,8 +144,12 @@ function FormPage() {
 
                         <tr>
                             <td colspan="2">
-                                <ACheckBox value={approvalText}>
+                                <ACheckBox value={approvalText}
+                                    onClick={openPopup}>
                                 </ACheckBox>
+                                <DataProcessing closePopup={closePopup}
+                                    isPopupOpen={isPopupOpen}>
+                                </DataProcessing>
                             </td>
                         </tr>
 

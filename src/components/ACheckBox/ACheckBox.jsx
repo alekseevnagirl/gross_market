@@ -7,9 +7,10 @@ const ACheckBox = function (props) {
             <input type="checkbox" 
                 className={classes.checkbox}
                 id={props.id}/>
-            <label for={props.id}>
+            <button className={classes.checkbox__text}
+                 onClick={props.onClick}>
                 { props.value }
-            </label>
+            </button>
         </div>
     )
 }
