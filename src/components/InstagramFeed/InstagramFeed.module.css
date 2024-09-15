@@ -5,3 +5,21 @@
     font-size: 32px;
     margin: 72px 0 32px 0;
 }
+.feed__content{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: [row1-start] 540px [row2] 540px [last];
+    gap: 20px;
+    margin-bottom: 20px;
+}
+.feed__content img:first-child {
+    grid-column: 1;
+}
+.feed__content img:not(:first-child) {
+    grid-column: 2;
+  }
+.feed__content__post {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}

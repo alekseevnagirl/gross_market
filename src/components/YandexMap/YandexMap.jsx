@@ -4,7 +4,7 @@ import AButton from '../AButton/AButton';
 import classes from './YandexMap.module.css';
 import mapIcon from './map-icon.png';
 
-const YandexMap = ({ points }) => {
+const YandexMap = ({ points, title }) => {
     const mapState = {
         center: [55.749547, 37.613440],
         zoom: 12,
@@ -15,6 +15,9 @@ const YandexMap = ({ points }) => {
 
     return (
         <div className={classes.map__wrapper}>
+            <p className={classes.map__title}>
+                { title }
+            </p>
             <YMaps query={{ apikey: '083c54e5-735d-42c4-8b8f-59d61f8bd2f9' }}>
                 <Map defaultState={mapState} width="100%" height="540px">
                     {filteredPoints.map(point => (

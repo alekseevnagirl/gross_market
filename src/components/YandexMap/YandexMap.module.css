@@ -20,3 +20,7 @@
 .map__filter {
     padding-bottom: 8px
 }
+.map__title {
+    font-size: 32px;
+    margin: 72px 0 32px 0;
+}

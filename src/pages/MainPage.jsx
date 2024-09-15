@@ -43,9 +43,12 @@ function MainPage() {
                 slides={miniSlides}>
             </AMiniSlider>
 
-            <InstagramFeed title="мы в инстаграме"></InstagramFeed>
+            <InstagramFeed title="мы в инстаграме"
+                posts={miniSlides}>
+            </InstagramFeed>
             
-            <YandexMap points={points} />
+            <YandexMap points={points} 
+                title="география"/>
         </div>
     );
 }
