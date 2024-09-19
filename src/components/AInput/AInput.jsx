@@ -1,11 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, forwardRef } from 'react';
 import classes from './AInput.module.css';
 
-const AInput = function (props) {
+const AInput = forwardRef ((props, ref) => {
     const errorRequired ='поле не заполнено';
     let error1 = 'поле заполнено не корректно';
 
     const [isInvalid, setInvalid] = useState(props.isInvalid);
+    const inputRef = useRef();
 
     return (
         <div className={classes.input__wrapper}>
@@ -25,7 +26,8 @@ const AInput = function (props) {
             <input type="text" 
                 className={classes.input} 
                 required={props.required}
-                placeholder={props.placeholder}>
+                placeholder={props.placeholder}
+                ref={ref}>
             </input>
             {props.required === true && props.value === '' && isInvalid === true
                 ? <p className={classes.input__error}>
@@ -34,7 +36,7 @@ const AInput = function (props) {
                 : <div></div>
             }
         </div>
-    )
-}
+    );
+});
 
 export default AInput;

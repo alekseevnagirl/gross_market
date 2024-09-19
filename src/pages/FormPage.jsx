@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import AInput from '../components/AInput/AInput';
 import ARadioButtonGroup from '../components/ARadioButtonGroup/ARadioButtonGroup';
 import ASelect from '../components/ASelect/ASelect';
@@ -10,6 +10,7 @@ import ACaptcha from '../components/ACaptcha/ACaptcha';
 import '../styles/FormPage.css'
 import { useNavigate } from 'react-router-dom';
 import DataProcessing from '../mixins/DataProcessing';
+import emailjs from '@emailjs/browser';
 
 function FormPage() {
     const [gender, setGender] = useState([
@@ -33,15 +34,40 @@ function FormPage() {
     const [isNotValid, setIsNotValid] = useState(false);
 
     const navigate = useNavigate ();
+    const vacancyRef = useRef();
+    const fioRef = useRef();
+    const dateRef = useRef();
+    const genderRef =useRef();
+    const phoneRef = useRef();
+    const emailRef = useRef();
 
-    const handleSubmit = (event) => {
-        let errors = false;
-        if (errors === true) {
-            navigate('/success');
-        } 
-        else {
-            console.log(11111, isInvalid)
+    const handleSubmit = (e) => {
+        e.preventDefault(); console.log(vacancyRef, genderRef);
+
+        let sendMessage = `Вакансия: ${vacancyRef.current.value}.\n 
+            ФИО: ${fioRef.current.value}.\n
+            Дата рождения: ${dateRef.current.value}.\n
+            Пол: .\n
+            Контактный телефон: ${phoneRef.current.value}.\n
+            Электронная почта: ${emailRef.current.value}.\n
+            Резюме: .`;
+
+        let sendData = {
+            name: fioRef.current.value,
+            message: sendMessage
         }
+
+        emailjs.send('default_service', 'template_lxeib3a', sendData, {
+            publicKey: 'O95mwj5YpKOZb-MC-'
+        })
+        .then(
+          () => {
+            navigate('/success');
+          },
+          (error) => {
+            alert(error);
+          },
+        );
     };
 
     const [isPopupOpen, setPopupOpen] = useState(false);
@@ -60,15 +86,16 @@ function FormPage() {
             Работа твоей мечты
         </p>
 
-        <div class="FormPage__container">
-            <div class="FormPage__container__item__form">
+        <div className="FormPage__container">
+            <div className="FormPage__container__item__form">
                 <form onSubmit={handleSubmit}>
                     <table className="FormPage__container__table">
                         <tr>
                             <td colspan="2">
                                 <ASelect labelText="Вакансия" 
                                     values={ vacancies } 
-                                    required={true}>
+                                    required={true}
+                                    ref={vacancyRef}>
                                 </ASelect>
                             </td>
                         </tr>
@@ -77,7 +104,8 @@ function FormPage() {
                             <td colspan="2">
                                 <AInput labelText="ФИО" 
                                     required={true}
-                                    isInvalid={isInvalid}>
+                                    isInvalid={isInvalid} 
+                                    ref={fioRef}>
                                 </AInput>
                             </td>
                         </tr>
@@ -88,14 +116,16 @@ function FormPage() {
                                     <AInput labelText="Дата рождения" 
                                         required={true} 
                                         placeholder="28.07.2002"
-                                        isInvalid={isInvalid}>
+                                        isInvalid={isInvalid}
+                                        ref={dateRef}>
                                     </AInput>
                                 </div>
                             </td>
                             <td width="50%">
                                 <ARadioButtonGroup labelText="Пол" 
                                     values={ gender }
-                                    name="gender">
+                                    name="gender"
+                                    ref={genderRef}>
                                 </ARadioButtonGroup>
                             </td>
                         </tr>
@@ -106,14 +136,16 @@ function FormPage() {
                                     <AInput labelText="Контактный телефон" 
                                         required={true} 
                                         placeholder="+7 ("
-                                        isInvalid={isInvalid}>
+                                        isInvalid={isInvalid} 
+                                        ref={phoneRef}>
                                     </AInput>
                                 </div>
                             </td>
                             <td>
                                 <AInput labelText="Электронная почта" 
                                     required={false}
-                                    isInvalid={isInvalid}>
+                                    isInvalid={isInvalid} 
+                                    ref={emailRef}>
                                 </AInput>
                             </td>
                         </tr>
@@ -166,7 +198,7 @@ function FormPage() {
                 </form>
             </div>
 
-            <div class="FormPage__container__item__info">
+            <div className="FormPage__container__item__info">
                 <p className="FormPage__container__title">Наша суперцель</p>
                 <p>— стать любимым магазином для каждой российской семьи.<br/><br/>
                 Сотни тысяч наших сотрудников ежедневно работают над её достижением.<br/><br/>

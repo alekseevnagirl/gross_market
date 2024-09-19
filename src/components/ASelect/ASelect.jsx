@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, forwardRef } from 'react';
 import classes from './ASelect.module.css';
 
-const ASelect = function (props) {
+const ASelect = forwardRef((props, ref) => {
     const[selectValues, setValues] = useState(props.values);
 
     return (
@@ -16,13 +16,14 @@ const ASelect = function (props) {
                 : <div></div>
             }
 
-            <select className={classes.select}>
+            <select className={classes.select}
+                ref={ref}>
                 { selectValues.map(value => 
                     <option className={classes.select__option}>{value.value}</option>
                 )}
             </select>
         </div>
-    )
-}
+    );
+});
 
 export default ASelect;

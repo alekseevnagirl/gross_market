@@ -1,9 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, forwardRef, useImperativeHandle } from 'react';
 import ARadioButton from '../ARadioButton/ARadioButton';
 import classes from './ARadioButtonGroup.module.css';
 
-const ARadioButtonGroup = function (props) {
+const ARadioButtonGroup = forwardRef((props, ref) => {
     const[radioButtonValues, setValues] = useState(props.values);
+    const [selectedValue, setSelectedValue] = useState('');
+    
+    useImperativeHandle(ref, () => ({
+        getSelectedValue: () => selectedValue,
+    }));
+
+    const handleChange = (event) => {
+        setSelectedValue(event.target.value);
+    };
 
     return (
         <div className={classes.radioButtonGroup__wrapper}>
@@ -21,14 +30,18 @@ const ARadioButtonGroup = function (props) {
                     <tr>
                         { radioButtonValues.map(value => 
                             <td style={{ width: `${100 / radioButtonValues.length}%` }}>
-                                <ARadioButton value={value.value} name={props.name}></ARadioButton>
+                                <ARadioButton value={value.value} 
+                                    name={props.name}
+                                    onChange={handleChange}
+                                    checked={selectedValue === value.value}>
+                                </ARadioButton>
                             </td>
                         )}
                     </tr>
                 </table>
             </div>
         </div>
-    )
-}
+    );
+});
 
 export default ARadioButtonGroup;
